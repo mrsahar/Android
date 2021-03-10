@@ -1,0 +1,26 @@
+MenuBuilder menuBuilder =new MenuBuilder(this);
+MenuInflater inflater = new MenuInflater(this);
+inflater.inflate(R.menu.menu, menuBuilder);
+MenuPopupHelper optionsMenu = new MenuPopupHelper(this, menuBuilder, view);
+optionsMenu.setForceShowIcon(true);
+// Set Item Click Listener
+menuBuilder.setCallback(new MenuBuilder.Callback() {
+    @Override
+    public boolean onMenuItemSelected(MenuBuilder menu, MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.opt1: // Handle option1 Click
+                return true;
+            case R.id.opt2: // Handle option2 Click
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    @Override
+    public void onMenuModeChange(MenuBuilder menu) {}
+});
+
+
+// Display the menu
+optionsMenu.show();
